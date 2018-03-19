@@ -1,7 +1,7 @@
 var request = require('request');
 var secrets = require('./secrets');
 
-console.log('Welcome to the GitHub Avatar Downloader!');
+console.log('Welcome to the GitHub Avatar Downloader!!!');
 
 function getRepoContributors(repoOwner, repoName, callback) {
   var options = {
