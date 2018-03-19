@@ -2,19 +2,21 @@ var secrets = require('./secrets');
 var request = require('request');
 var fs = require('fs');
 
+var BASE_URL = "https://api.github.com/";
 var currentPosition = 0;
 
 function getRepoContributors(repoOwner, repoName, callback) {
   console.log('Beginning request');
   var options = {
-    url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
+    url:  BASE_URL + "repos/" + repoOwner + "/" + repoName + "/contributors",
+    json: true,
     headers: {
       'User-Agent': 'request',
       'Authorization': secrets.GITHUB_TOKEN
     }
   };
   request(options, function(err, res, body) {
-    callback(err, JSON.parse(body));
+    callback(err, body);
   });
 }
 
