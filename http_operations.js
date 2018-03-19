@@ -10,9 +10,9 @@ function getRepoContributors(repoOwner, repoName, callback) {
   var options = {
     url:  BASE_URL + "repos/" + repoOwner + "/" + repoName + "/contributors",
     json: true,
+    Authorization: secrets.GITHUB_TOKEN,
     headers: {
       'User-Agent': 'request',
-      'Authorization': secrets.GITHUB_TOKEN
     }
   };
   request(options, function(err, res, body) {

@@ -64,4 +64,4 @@ typings/
 secrets.js
 
 #Avatar images
-.jpg
+avatars/*.jpg
