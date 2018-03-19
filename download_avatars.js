@@ -27,9 +27,9 @@ var input = process.argv.slice(2);
 if (input.length === 2){
   httpOperations.getRepoContributors(input[0], input[1], function(err, result) {
     //Check and see if there's an error, otherwise continue parsing
-    if(err !== null){
+    if (err !== null){
       console.log("Something went wrong!");
-    }else{
+    } else {
       //If we don't have an array of results, dipslay error.  Else loop over results and download images
       if (!Array.isArray(result)){
         console.log("No results for this data, try again using this format : " + INPUT_FORMAT_MSG);
