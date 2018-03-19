@@ -22,13 +22,12 @@ function downloadImageByURL(url, filePath){
 }
 
 var input = process.argv.slice(2);
-
+//Checks to make sure user has input two arguments, otherwise reminds them of input format
 if (Array.isArray(input) && input.length === 2){
   httpOperations.getRepoContributors("jquery", "jquery", function(err, result) {
-    userCount = result.length;
     result.forEach(function(user){
       var path = "avatars/" + user.login + ".jpg";
-      httpOperations.downloadImageByURL(user.avatar_url, path);
+      httpOperations.downloadImageByURL(user.avatar_url, path, result.length);
     });
   });
 } else {
