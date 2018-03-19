@@ -13,11 +13,10 @@ function getRepoContributors(repoOwner, repoName, callback) {
   };
 
   request(options, function(err, res, body) {
-    callback(err, body);
+    callback(err, JSON.parse(body));
   });
 }
 
 getRepoContributors("jquery", "jquery", function(err, result) {
-  console.log("Errors:", err);
-  console.log("Result:", result);
+  console.log(result);
 });
