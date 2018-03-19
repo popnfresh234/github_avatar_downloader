@@ -26,10 +26,11 @@ var input = process.argv.slice(2);
 //Checks to make sure user has input two arguments, otherwise reminds them of input format
 if (input.length === 2){
   httpOperations.getRepoContributors(input[0], input[1], function(err, result) {
-    //Check and see if there's an error
+    //Check and see if there's an error, otherwise continue parsing
     if(err !== null){
       console.log("Something went wrong!");
     }else{
+      //If we don't have an array of results, dipslay error.  Else loop over results and download images
       if (!Array.isArray(result)){
         console.log("No results for this data, try again using this format : " + INPUT_FORMAT_MSG);
       } else {
