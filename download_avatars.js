@@ -18,5 +18,7 @@ function getRepoContributors(repoOwner, repoName, callback) {
 }
 
 getRepoContributors("jquery", "jquery", function(err, result) {
-  console.log(result);
+  result.forEach(function(user){
+    console.log(user.avatar_url);
+  });
 });
