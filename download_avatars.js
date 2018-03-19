@@ -38,12 +38,19 @@ function downloadImageByURL(url, filePath){
   }));
 }
 
+var input = process.argv.slice(2);
 
-getRepoContributors("jquery", "jquery", function(err, result) {
-  userCount = result.length;
-  result.forEach(function(user){
-    var path = "avatars/" + user.login + ".jpg";
-    downloadImageByURL(user.avatar_url, path);
+if (Array.isArray(input) && input.length === 2){
+  getRepoContributors("jquery", "jquery", function(err, result) {
+    userCount = result.length;
+    result.forEach(function(user){
+      var path = "avatars/" + user.login + ".jpg";
+      downloadImageByURL(user.avatar_url, path);
+    });
   });
-});
+} else {
+  console.log("Please supply arguments in this form:  download_avatars.js <owner> <repo>");
+}
+
+
 
