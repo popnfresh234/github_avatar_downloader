@@ -5,10 +5,6 @@ var INPUT_FORMAT_MSG = 'download_avatars.js <owner> <repo>';
 
 console.log('Welcome to the GitHub Avatar Downloader!!!');
 
-
-var input = process.argv.slice(2);
-
-
 try{
   var input = process.argv.slice(2);
   var key = process.env.GITHUB_TOKEN;
