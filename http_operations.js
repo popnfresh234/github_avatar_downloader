@@ -31,6 +31,8 @@ function downloadImageByURL(url, filePath, userCount){
     } else {
       console.log(currentPosition);
     }
+  }).on('error', function(error){
+    console.log("File write error for path: " + filePath);
   }));
 }
 
