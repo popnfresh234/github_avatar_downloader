@@ -6,7 +6,7 @@ var currentPosition = 0;
 function getRepoContributors(key, repoOwner, repoName, callback) {
   console.log('Beginning request');
   var options = {
-    url:  BASE_URL + "repos/" + repoOwner + "/" + repoName + "/contributors",
+    url:  BASE_URL + "repos/" + repoOwner + "/" + repoName + "/contributors?per_page=100",
     json: true,
     headers: {
       'User-Agent': 'request',
@@ -36,4 +36,18 @@ function downloadImageByURL(url, filePath, userCount){
   }));
 }
 
-module.exports = {getRepoContributors: getRepoContributors, downloadImageByURL: downloadImageByURL};
+function getStarredRepos(key, url, callback){
+  var options = {
+    url:  url,
+    json: true,
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': key
+    }
+  };
+  request(options, function(err, res, body) {
+    callback(err, body);
+  });
+}
+
+module.exports = {getRepoContributors: getRepoContributors, downloadImageByURL: downloadImageByURL, getStarredRepos, getStarredRepos};
