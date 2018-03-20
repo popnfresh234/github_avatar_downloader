@@ -1,4 +1,5 @@
 var httpOperations = require('./http_operations');
+
 var INPUT_FORMAT_MSG = 'download_avatars.js <owner> <repo>';
 
 console.log('Welcome to the GitHub Avatar Downloader!!!');
