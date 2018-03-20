@@ -1,17 +1,16 @@
-require('dotenv').config();
 var request = require('request');
 var fs = require('fs');
 var BASE_URL = "https://api.github.com/";
 var currentPosition = 0;
 
-function getRepoContributors(repoOwner, repoName, callback) {
+function getRepoContributors(key, repoOwner, repoName, callback) {
   console.log('Beginning request');
   var options = {
     url:  BASE_URL + "repos/" + repoOwner + "/" + repoName + "/contributors",
     json: true,
     headers: {
       'User-Agent': 'request',
-      'Authorization': process.env.GITHUB_TOKEN
+      'Authorization': key
     }
   };
   request(options, function(err, res, body) {
